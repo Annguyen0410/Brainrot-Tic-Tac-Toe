@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary_dark">#0a0a0f</color>
+    <color name="primary_medium">#1a1a2e</color>
+    <color name="primary_light">#16213e</color>
+    <color name="accent_purple">#e94560</color>
+    <color name="accent_cyan">#00d4ff</color>
+    <color name="accent_gold">#ffd700</color>
+    <color name="accent_green">#00ff88</color>
+    <color name="grid_line">#3a3a5c</color>
+    <color name="button_pressed">#2a2a4e</color>
+    <color name="text_primary">#ffffff</color>
+    <color name="text_secondary">#b3b3b3</color>
+    <color name="card_background">#1e1e3f</color>
+    <color name="selected_skin">#ff6b9d</color>
+    <color name="coin_gold">#ffcc02</color>
+</resources>

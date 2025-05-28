@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    tools:context=".MainActivity">
+
+    <!-- Top Bar with Title, Coins, and Settings -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="BRAINROT 12x12"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:fontFamily="sans-serif-black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/coin_background"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginEnd="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🪙"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/coinCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/coin_gold"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/settingsButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_settings"
+            app:tint="@color/text_secondary"
+            android:padding="4dp"
+            android:contentDescription="Settings"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    </LinearLayout>
+
+    <!-- Main Menu Screen -->
+    <LinearLayout
+        android:id="@+id/mainMenuScreen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/subTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Ultimate 12x12 Brainrot Challenge!"
+            android:textSize="18sp"
+            android:textColor="@color/text_secondary"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="32dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/accent_purple"
+            app:hintTextColor="@color/accent_purple">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/playerNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Player 1 Name"
+                android:inputType="textPersonName"
+                android:textColor="@color/text_primary"
+                android:text="Player 1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/playWithBotButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Play with BOT"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/accent_cyan"
+            android:layout_marginBottom="12dp"
+            style="@style/Widget.Material3.Button"/>
+
+        <Button
+            android:id="@+id/playWithPlayerButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Play with Player 2"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/accent_purple"
+            style="@style/Widget.Material3.Button"/>
+
+    </LinearLayout>
+
+    <!-- Game Content (initially hidden) -->
+    <ScrollView
+        android:id="@+id/gameContentScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Player Selection Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/playerSelectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp">
+                <!-- ... (content of playerSelectionCard remains the same) ... -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/playerSelectionTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Choose Your Fighter"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/chooseXButton"
+                            android:layout_width="120dp"
+                            android:layout_height="60dp"
+                            android:text="BE X"
+                            android:textStyle="bold"
+                            android:backgroundTint="@color/accent_purple"
+                            android:layout_marginEnd="16dp"
+                            style="@style/Widget.Material3.Button" />
+
+                        <Button
+                            android:id="@+id/chooseOButton"
+                            android:layout_width="120dp"
+                            android:layout_height="60dp"
+                            android:text="BE O"
+                            android:textStyle="bold"
+                            android:backgroundTint="@color/accent_cyan"
+                            style="@style/Widget.Material3.Button" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Skin Selection Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/skinSelectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp">
+                <!-- ... (content of skinSelectionCard remains the same) ... -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/skinSelectionTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Your Skin"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="16dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/skinRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/confirmSkinButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="START GAME"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/accent_green"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        style="@style/Widget.Material3.Button" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Game Board Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gameBoardCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp">
+                <!-- ... (content of gameBoardCard remains the same) ... -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Current Turn and Players -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/player1Info"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/player1SkinImage"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/shark_with_shoes"
+                                android:scaleType="centerCrop" />
+
+                            <TextView
+                                android:id="@+id/player1Name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Player 1 (X)"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/currentTurnText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="VS"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/accent_gold"
+                            android:layout_marginHorizontal="16dp" />
+
+                        <LinearLayout
+                            android:id="@+id/player2Info"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical|end">
+
+                            <TextView
+                                android:id="@+id/player2Name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Player 2 (O)"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/player2SkinImage"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/hotdog_character"
+                                android:scaleType="centerCrop" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Game Board -->
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <GridLayout
+                                android:id="@+id/gameBoard"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:rowCount="12"
+                                android:columnCount="12"
+                                android:background="@drawable/game_board_background"
+                                android:padding="8dp" />
+                        </ScrollView>
+                    </HorizontalScrollView>
+
+                    <!-- Score and Controls -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:id="@+id/scoreText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Score: 0 - 0"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/resetButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="RESET"
+                            android:textColor="@color/white"
+                            android:backgroundTint="@color/accent_purple"
+                            android:layout_marginEnd="8dp"
+                            style="@style/Widget.Material3.Button.UnelevatedButton" />
+
+                        <Button
+                            android:id="@+id/newGameButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NEW GAME"
+                            android:textColor="@color/white"
+                            android:backgroundTint="@color/accent_cyan"
+                            style="@style/Widget.Material3.Button.UnelevatedButton" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

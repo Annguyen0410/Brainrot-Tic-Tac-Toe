@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/card_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="20dp"/>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchDarkMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dark Mode"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:thumbTint="@color/accent_purple"
+        app:trackTint="@color/primary_light"/>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchMusic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Background Music"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="12dp"
+        app:thumbTint="@color/accent_cyan"
+        app:trackTint="@color/primary_light"/>
+
+    <Button
+        android:id="@+id/closeSettingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:textColor="@color/accent_gold"
+        android:layout_gravity="end"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

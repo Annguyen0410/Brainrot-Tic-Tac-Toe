@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyApplicationnnn" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/accent_purple</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/accent_cyan</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:windowBackground">@color/primary_dark</item>
+        <item name="android:navigationBarColor">@color/primary_dark</item>
+
+        <!-- For AlertDialogs -->
+        <item name="materialAlertDialogTheme">@style/AlertDialogCustom</item>
+    </style>
+
+    <style name="Theme.MyApplicationnnn" parent="Base.Theme.MyApplicationnnn" />
+
+    <!-- Custom AlertDialog Style -->
+    <style name="AlertDialogCustom" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">@color/primary_medium</item> <!-- Background of the dialog -->
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text.Custom</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.App.Body.Text.Custom</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button.Dialog</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.App.Button.Dialog</item>
+    </style>
+
+    <style name="MaterialAlertDialog.App.Title.Text.Custom" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MaterialAlertDialog.App.Body.Text.Custom" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Widget.App.Button.Dialog" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/accent_purple</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
