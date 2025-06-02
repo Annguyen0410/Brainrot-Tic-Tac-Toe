@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="24dp"
-    android:background="@color/card_background">
+    android:background="@drawable/dialog_bg_rounded">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,41 +15,85 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"/>
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switchDarkMode"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary_light"
+        android:layout_marginBottom="12dp"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dark Mode"
-        android:textColor="@color/text_secondary"
-        android:textSize="16sp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        app:thumbTint="@color/accent_purple"
-        app:trackTint="@color/primary_light"/>
+        android:paddingBottom="8dp">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_dark_mode"
+            android:contentDescription="Dark Mode Icon"
+            android:layout_marginEnd="12dp"/>
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchDarkMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dark Mode"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            app:thumbTint="@color/accent_purple"
+            app:trackTint="@color/primary_light"/>
+    </LinearLayout>
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switchMusic"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary_light"
+        android:layout_marginBottom="12dp"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Background Music"
-        android:textColor="@color/text_secondary"
-        android:textSize="16sp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:layout_marginTop="12dp"
-        app:thumbTint="@color/accent_cyan"
-        app:trackTint="@color/primary_light"/>
+        android:paddingBottom="8dp">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_music"
+            android:contentDescription="Music Icon"
+            android:layout_marginEnd="12dp"/>
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchMusic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Background Music"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            app:thumbTint="@color/accent_cyan"
+            app:trackTint="@color/primary_light"/>
+    </LinearLayout>
 
-    <Button
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary_light"
+        android:layout_marginBottom="16dp"/>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/closeSettingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Close"
-        style="@style/Widget.Material3.Button.TextButton"
         android:textColor="@color/accent_gold"
         android:layout_gravity="end"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="12dp"
+        style="@style/Widget.Material3.Button.TextButton"/>
 
 </LinearLayout>

@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.media.MediaPlayer
+import android.net.Uri // Import for Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -24,6 +25,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.textfield.TextInputEditText
 import kotlin.math.max
 import kotlin.math.min
+import android.content.Intent // Import for Intent
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +36,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var playWithBotButton: Button
     private lateinit var playWithPlayerButton: Button
     private lateinit var settingsButton: ImageView
+
+    // Add these fields for the privacy policy section
+    private lateinit var privacyPolicyLayout: LinearLayout
+    private lateinit var privacyPolicyCheckBox: CheckBox
+    private lateinit var privacyPolicyText: TextView
+    private lateinit var privacyPolicyLink: TextView
 
     // UI Components - Game (existing)
     private lateinit var titleText: TextView
@@ -161,6 +169,20 @@ class MainActivity : AppCompatActivity() {
         playWithPlayerButton = findViewById(R.id.playWithPlayerButton)
         settingsButton = findViewById(R.id.settingsButton)
 
+        // Initialize new privacy policy UI components
+        privacyPolicyLayout = findViewById(R.id.privacyPolicyLayout)
+        privacyPolicyCheckBox = findViewById(R.id.privacyPolicyCheckBox)
+        privacyPolicyText = findViewById(R.id.privacyPolicyText)
+        privacyPolicyLink = findViewById(R.id.privacyPolicyLink)
+
+        // Set the privacy policy link
+        privacyPolicyLink.setOnClickListener {
+            val url = "https://sites.google.com/view/zaigamepolicy/home"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
+
         titleText = findViewById(R.id.titleText)
         coinCount = findViewById(R.id.coinCount)
         playerSelectionCard = findViewById(R.id.playerSelectionCard)
@@ -221,6 +243,12 @@ class MainActivity : AppCompatActivity() {
         settingsButton.setOnClickListener { showSettingsDialog() }
 
         playWithBotButton.setOnClickListener {
+            // Privacy Policy check
+            if (!privacyPolicyCheckBox.isChecked) {
+                Toast.makeText(this, "Please accept the Privacy Policy to play.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             isAgainstBot = true
             player1UIName = playerNameInput.text.toString().ifBlank { "Player 1" }
             saveGameData()
@@ -230,6 +258,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         playWithPlayerButton.setOnClickListener {
+            // Privacy Policy check
+            if (!privacyPolicyCheckBox.isChecked) {
+                Toast.makeText(this, "Please accept the Privacy Policy to play.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             isAgainstBot = false
             player1UIName = playerNameInput.text.toString().ifBlank { "Player 1" }
             saveGameData()

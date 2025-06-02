@@ -131,6 +131,39 @@
             android:backgroundTint="@color/accent_purple"
             style="@style/Widget.Material3.Button"/>
 
+        <!-- Privacy Policy Section -->
+        <LinearLayout
+            android:id="@+id/privacyPolicyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+                android:id="@+id/privacyPolicyCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/privacyPolicyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I accept the "
+                android:textColor="@color/text_primary"/>
+
+            <TextView
+                android:id="@+id/privacyPolicyLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Privacy Policy"
+                android:textColor="@color/accent_gold"
+                android:textStyle="bold"
+                android:autoLink="web"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Game Content (initially hidden) -->
